@@ -160,15 +160,15 @@ Resources:
               STAGE: '${Stage}'
               DAX_ENDPOINT: '${DaxEndpoint}'
               REGION: '${AWS::Region}'
-            phases:
-              install:
-                runtime-version:
-                  nodejs: 14
-                commands:
-                  - make install
-              build:
-                commands:
-                  - make deploy stage=$STAGE
+          phases:
+            install:
+              runtime-version:
+                nodejs: 14
+              commands:
+                - make install
+            build:
+              commands:
+                - make deploy stage=$STAGE
   DeployBackendBuildRole:
     Type: AWS::IAM::Role
     Properties:
