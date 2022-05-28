@@ -6,7 +6,7 @@ provider:
   name: aws
   runtime: nodejs14.x
   stackTags:
-    serice: backend-serverless-service
+    service: backend-serverless-service
     stage: ${opt:stage}
   versionFunctions: false
   iamRoleStatements:
