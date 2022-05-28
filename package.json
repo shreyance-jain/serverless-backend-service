@@ -21,7 +21,6 @@
     "serverless": "^2.59.0",
     "serverless-iam-roles-per-function": "^3.1.0",
     "serverless-offline": "^8.0.0",
-    "serverless-domain-manager": "^2.3.5"
   },
   "dependencies": {},
   "author": "SHREYANCE JAIN",
