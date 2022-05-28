@@ -162,7 +162,7 @@ Resources:
               REGION: '${AWS::Region}'
           phases:
             install:
-              runtime-version:
+              runtime-versions:
                 nodejs: 14
               commands:
                 - make install
