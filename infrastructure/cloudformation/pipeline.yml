@@ -190,6 +190,7 @@ Resources:
                   - events:*
                   - cloudwatch:*
                   - lambda:*
+                  - apigateway:*
                   - route53:ListHostedZones
                   - route53:ChangeResourceRecordSets
                   - route53:GetHostedZone
