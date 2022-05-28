@@ -210,6 +210,7 @@ Resources:
                   - s3:PutLifecycleConfiguration
                   - s3:PutBucketCORS
                   - s3:PutBucketNotification
+                  - s3:PutBucketPolicy
                   - s3:DeleteBucketNotification
                   - s3:SetBucketEncryption
                   - s3:DeleteBucketEncryption
