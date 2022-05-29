@@ -160,15 +160,15 @@ Resources:
               STAGE: '${Stage}'
               DAX_ENDPOINT: '${DaxEndpoint}'
               REGION: '${AWS::Region}'
-            phases:
-              install:
-                runtime-version:
-                  nodejs: 14
-                commands:
-                  - make install
-              build:
-                commands:
-                  - make deploy stage=$STAGE
+          phases:
+            install:
+              runtime-versions:
+                nodejs: 14
+              commands:
+                - make install
+            build:
+              commands:
+                - make deploy stage=$STAGE
   DeployBackendBuildRole:
     Type: AWS::IAM::Role
     Properties:
@@ -190,6 +190,7 @@ Resources:
                   - events:*
                   - cloudwatch:*
                   - lambda:*
+                  - apigateway:*
                   - route53:ListHostedZones
                   - route53:ChangeResourceRecordSets
                   - route53:GetHostedZone
@@ -210,6 +211,7 @@ Resources:
                   - s3:PutLifecycleConfiguration
                   - s3:PutBucketCORS
                   - s3:PutBucketNotification
+                  - s3:PutBucketPolicy
                   - s3:DeleteBucketNotification
                   - s3:SetBucketEncryption
                   - s3:DeleteBucketEncryption

@@ -1,0 +1,45 @@
+service: serverless-backend-service
+
+frameworkVersion: ^2.54.0
+
+provider:
+  name: aws
+  runtime: nodejs14.x
+  stackTags:
+    service: backend-serverless-service
+    stage: ${opt:stage}
+  versionFunctions: false
+  iamRoleStatements:
+    - Effect: 'Allow'
+      Action: 
+        - 'ec2:CreateNetworkInterface'
+        - 'ec2:DescribeNetworkInterface'
+        - 'ec2:DetachNetworkInterface'
+        - 'ec2:DeleteNetworkInterface'
+        - 'logs:CreateLogGroup'
+        - 'logs:CreateLogStream'
+        - 'logs:PutLogEvents'
+      Resource: '*'
+  apiGateway:
+    minimumCompressionSize: 1024
+  timeout: 29
+  region: ${env:REGION}
+  stage: ${opt:stage}
+  environment:
+    STAGE: ${opt:stage}
+    PROJECT_NAME: ${self:service}
+    API_DOMAIN:
+    REGION: ${self:provider.region}
+
+custom:
+  serverless-iam-roles-per-function:
+    defaultInherit: true
+  environment: ${env:NODE_ENV, file(${opt:stage}-env.yml):NODE_ENV}
+
+functions:
+  createTenant:
+    ${file(src/deliveries/lambda/hello-world.yml)}
+
+plugins:
+  - serverless-offline
+  - serverless-iam-roles-per-function
