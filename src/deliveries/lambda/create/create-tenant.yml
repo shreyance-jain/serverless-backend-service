@@ -12,4 +12,4 @@ iamRoleStatements:
     Action: 
       - "dynamodb:PutItem"
     Resource:
-      - "arn:aws:dynamodb:#{AWS::Region}:#{AWS::AccountId}:table/${Stage}-tenants"
+      - "arn:aws:dynamodb:#{AWS::Region}:#{AWS::AccountId}:table/${opt:stage}-tenants"
