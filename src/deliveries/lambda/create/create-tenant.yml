@@ -10,6 +10,7 @@ iamRoleStatementName: create-tenant-${opt:stage}
 iamRoleStatements:
   - Effect: "Allow"
     Action: 
+      - "dynamodb:Query"
       - "dynamodb:PutItem"
     Resource:
       - "arn:aws:dynamodb:#{AWS::Region}:#{AWS::AccountId}:table/${opt:stage}-tenants"
