@@ -5,6 +5,7 @@ schema {
 
 type Query {
     # Query
+    getTenant(tenant: String): AWSJSON
 }
 
 type Mutation {
