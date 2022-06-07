@@ -37,9 +37,12 @@ custom:
   environment: ${env:NODE_ENV, file(${opt:stage}-env.yml):NODE_ENV}
 
 functions:
-  createTenant:
+  helloWorld:
     ${file(src/deliveries/lambda/hello-world.yml)}
+  createTenant:
+    ${file(src/deliveries/lambda/create/create-tenant.yml)}
 
 plugins:
   - serverless-offline
   - serverless-iam-roles-per-function
+  - serverless-pseudo-parameters

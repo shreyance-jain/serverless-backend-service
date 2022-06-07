@@ -1,0 +1,16 @@
+handler: src/deliveries/lambda/create/create-tenant.handler
+events:
+  - http:
+      path: /tenant
+      method: post
+      cors: true
+      # auth
+      # documentation
+iamRoleStatementName: create-tenant-${opt:stage}
+iamRoleStatements:
+  - Effect: "Allow"
+    Action: 
+      - "dynamodb:Query"
+      - "dynamodb:PutItem"
+    Resource:
+      - "arn:aws:dynamodb:#{AWS::Region}:#{AWS::AccountId}:table/${opt:stage}-tenants"
