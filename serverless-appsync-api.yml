@@ -7,7 +7,7 @@ mappingTemplatesLocation: mapping-templates
 mappingTemplates: ${file(./Resources/AppSyncResources/AppSyncMappingTemplates.yml)}
 
 dataSources:
-  - type: AWS_LAMDBA
+  - type: AWS_LAMBDA
     name: createTenant
     description: 'Lambda'
     config:
