@@ -49,3 +49,4 @@ plugins:
   - serverless-offline
   - serverless-iam-roles-per-function
   - serverless-pseudo-parameters
+  - serverless-appsync-plugin
