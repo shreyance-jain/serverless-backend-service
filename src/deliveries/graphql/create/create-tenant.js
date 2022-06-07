@@ -6,9 +6,7 @@ const { httpResponse } = require('../../../services/http');
 const { Logger } = require('../../../services/logger');
 
 const handler = async (event) => {
-  console.log('check event from gql');
-  console.log(JSON.stringify(event));
-  const { params } = JSON.parse(event.input);
+  const { params } = event;
   const logger = new Logger(__dirname, handler);
   // request context auth
   try {
