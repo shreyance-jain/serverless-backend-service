@@ -1,0 +1,22 @@
+schema {
+  mutation: Mutation
+}
+
+type Mutation {
+  # Create tenant
+  createTenant(input: CreateTenantInput!): AWSJSON
+}
+
+input CreateTenantInput {
+  tenant: String!
+  tenantType: String!
+  timezone: String
+  createdAt: AWSDate
+}
+
+type Tenant {
+  tenant: String!
+  tenantType: String!
+  timezone: String!
+  createdAt: AWSDate!
+}
