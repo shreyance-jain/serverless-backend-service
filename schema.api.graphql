@@ -10,7 +10,7 @@ type Query {
 
 type Mutation {
   # Create tenant
-  createTenant(params: CreateTenantInput!): AWSJSON
+  createTenant(params: CreateTenantInput!): Tenant
 }
 
 input CreateTenantInput {
@@ -23,6 +23,7 @@ input CreateTenantInput {
 type Tenant {
   tenant: String!
   tenantType: String!
-  timezone: String!
-  createdAt: AWSDate!
+  timezone: String
+  createdAt: AWSDate
+  active: Boolean
 }
