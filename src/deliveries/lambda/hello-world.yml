@@ -1,15 +1,6 @@
 handler: src/deliveries/lambda/hello-world.handler
 events:
   - http:
-      path: /hello
+      path: /
       method: get
       cors: true
-      # auth
-      # documentation
-# iamRoleStatementName: create-tenant-${opt:stage}
-# iamRoleStatements:
-#   - Effect: "Allow"
-#     Action: 
-#       - 
-#     Resource:
-#       - 
