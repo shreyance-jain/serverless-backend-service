@@ -23,7 +23,7 @@ input CreateTenantInput {
 type Tenant {
   tenant: String!
   tenantType: String!
-  timezone: String
+  # timezone: String
   createdAt: AWSDate
   active: Boolean
 }
