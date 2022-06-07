@@ -265,6 +265,17 @@ Resources:
                   - wafv2:ListTagsForResource
                   - wafv2:AssociateWebACL
                   - wafv2:UpdateWebACL
+                  - appsync:TagResource
+                  - appsync:CreateGraphqlApi
+                  - appsync:GetGraphqlApi
+                  - appsync:CreateApiKey
+                  - appsync:StartSchemaCreation
+                  - appsync:GetSchemaCreationStatus
+                  - appsync:CreateDataSource
+                  - appsync:UpdateApiKey
+                  - appsync:UpdateDataSource
+                  - appsync:CreateResolver
+                  - appsync:DeleteDataSource
                 Resource: "*"
   TenantDynamoDBTable: #Service reources can be built using different IAC tool as well such as terraform
     Type: AWS::DynamoDB::Table
