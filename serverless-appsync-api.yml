@@ -1,0 +1,15 @@
+name: appsync-graphql-serverless-api
+schema: schema.api.graphql
+authenticationType: API_KEY
+apiKeys:
+  - apiKey
+mappingTemplatesLocation: mapping-templates
+mappingTemplates: ${file(./Resources/AppSyncResources/AppSyncMappingTemplates.yml)}
+
+dataSources:
+  - type: AWS_LAMDBA
+    name: createTenant
+    description: 'Lambda'
+    config:
+      functionName: createTenant
+      iamRoleStatements: ${file(./Resources/AppSyncResources/AppSyncRole.yml)}
