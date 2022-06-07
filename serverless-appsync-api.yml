@@ -11,5 +11,5 @@ dataSources:
     name: createTenant
     description: 'Lambda'
     config:
-      functionName: createTenant
+      functionName: createTenantGraphQl
       iamRoleStatements: ${file(./Resources/AppSyncResources/AppSyncRole.yml)}
