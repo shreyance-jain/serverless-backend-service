@@ -2,7 +2,7 @@ const https = require('https');
 
 const httpResponse = (statusCode, body, headers = {}) => ({
   statusCode,
-  body: JSON.stringify(body),
+  body,
   headers: {
     'Content-Type': 'application/json',
     'Access-Control-Allow-Origin': '*',
