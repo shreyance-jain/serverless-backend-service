@@ -5,7 +5,7 @@ schema {
 
 type Query {
     # Query
-    getTenant(tenant: String): AWSJSON
+    getTenant(tenant: String): Test
 }
 
 type Mutation {
@@ -26,4 +26,8 @@ type Tenant {
   # timezone: String
   createdAt: AWSDate
   active: Boolean
+}
+
+type Test {
+  tenant: String
 }
