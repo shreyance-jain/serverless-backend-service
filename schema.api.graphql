@@ -38,4 +38,5 @@ type Tenant {
   tenantType: String!
   createdAt: Float!
   active: Boolean!
+  timezone: String
 }
