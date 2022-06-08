@@ -14,7 +14,6 @@ const getByName = async (tenant) => {
       ExpressionAttributeNames: {
         '#tenant': 'tenant',
       },
-      ProjectionExpression: '#tenant',
     }).promise();
   if (res.Items.length) {
     return res.Items[0];
