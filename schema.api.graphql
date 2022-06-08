@@ -5,7 +5,7 @@ schema {
 
 type Query {
     # Query
-    getTenant(tenant: String): Test
+    getTenant(tenant: String): Tenant
 }
 
 type Mutation {
@@ -25,8 +25,4 @@ type Tenant {
   tenantType: String!
   createdAt: Float!
   active: Boolean!
-}
-
-type Test {
-  tenant: String
 }
