@@ -1,0 +1,32 @@
+schema {
+  query: Query
+  mutation: Mutation
+}
+
+type Query {
+    # Query
+    getTenant(tenant: String): Test
+}
+
+type Mutation {
+  # Create tenant
+  createTenant(params: CreateTenantInput!): Tenant
+}
+
+input CreateTenantInput {
+  tenant: String!
+  tenantType: String!
+  timezone: String
+  createdAt: AWSDate
+}
+
+type Tenant {
+  tenant: String!
+  tenantType: String!
+  createdAt: Float!
+  active: Boolean!
+}
+
+type Test {
+  tenant: String
+}

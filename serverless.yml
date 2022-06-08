@@ -35,14 +35,19 @@ custom:
   serverless-iam-roles-per-function:
     defaultInherit: true
   environment: ${env:NODE_ENV, file(${opt:stage}-env.yml):NODE_ENV}
+  appSync: ${file(serverless-appsync-api.yml)}
 
 functions:
   helloWorld:
     ${file(src/deliveries/lambda/hello-world.yml)}
   createTenant:
     ${file(src/deliveries/lambda/create/create-tenant.yml)}
+  createTenantGraphQl:
+    ${file(src/deliveries/graphql/create/create-tenant.yml)}
+
 
 plugins:
   - serverless-offline
   - serverless-iam-roles-per-function
   - serverless-pseudo-parameters
+  - serverless-appsync-plugin

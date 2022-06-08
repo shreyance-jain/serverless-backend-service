@@ -37,8 +37,3 @@ module.exports = {
   getByName,
   create,
 };
-
-
-// custom logger (done)
-// custom errors (done)
-// linter (done)
