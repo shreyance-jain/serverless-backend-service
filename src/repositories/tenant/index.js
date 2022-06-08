@@ -11,9 +11,6 @@ const getByName = async (tenant) => {
       ExpressionAttributeValues: {
         ':tenant': tenant,
       },
-      ExpressionAttributeNames: {
-        '#tenant': 'tenant',
-      },
     }).promise();
   if (res.Items.length) {
     return res.Items[0];
