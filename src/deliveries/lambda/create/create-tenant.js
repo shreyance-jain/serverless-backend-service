@@ -13,7 +13,7 @@ const createTenantHandler = async (event) => {
     tenantAdaptors.createTenantAdaptor(params);
     const tenant = await createTenant(params);
     // response adaptor
-    return httpResponse(200, { tenant });
+    return httpResponse(200, JSON.stringify(tenant));
   } catch (error) {
     logger.debug(error.toString(), error, { tenant: params.tenant });
     return httpResponse(error.statusCode || 500, { message: error.message || 'Failed to create tenant' });
