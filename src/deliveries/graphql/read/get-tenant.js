@@ -1,4 +1,3 @@
-const { httpResponse } = require('../../../services/http');
 const { Logger } = require('../../../services/logger');
 
 const { getTenant } = require('../../../usecases');
@@ -9,10 +8,10 @@ const getTenantHandler = async (event) => {
   try {
     // adding a adaptor is un-necessary in gql as it will be handled by request mapping vtl
     const tenantDetails = await getTenant(tenant);
-    return httpResponse(200, tenantDetails);
+    return tenantDetails;
   } catch (error) {
     logger.debug(error.toString(), error, { tenant });
-    return httpResponse(error.statusCode || 500, { message: error.message || 'Failed to get tenant details' });
+    throw new Error(error.message || 'Failed to get tenant details', error);
   }
 };
 
