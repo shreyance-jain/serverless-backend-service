@@ -11,17 +11,16 @@ const getByName = async (tenant) => {
       ExpressionAttributeValues: {
         ':tenant': tenant,
       },
-      ExpressionAttributeNames: {
-        '#tenant': 'tenant',
-      },
-      ProjectionExpression: '#tenant',
     }).promise();
-  return res.Items;
+  if (res.Items.length) {
+    return res.Items[0];
+  }
+  return null;
 };
 
 const create = async (params) => {
   const duplicateTenant = await getByName(params.tenant);
-  if (duplicateTenant.length) {
+  if (duplicateTenant) {
     throw new CustomError('Tenant with this name already exist', 409);
   }
   await client.put({

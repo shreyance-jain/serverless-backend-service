@@ -1,7 +1,7 @@
 const { tenantRepository } = require('../repositories');
 
-const createTenant = (params) => {
-  const tenant = tenantRepository.create({
+const createTenant = async (params) => {
+  const tenant = await tenantRepository.create({
     ...params,
     createdAt: new Date().valueOf(),
     active: true,

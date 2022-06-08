@@ -3,3 +3,9 @@
   field: createTenant
   request: "Mutation.createTenant.request.vtl"
   response: "Mutation.createTenant.response.vtl"
+- dataSource: getTenant
+  type: Query
+  field: getTenant
+  request: "Query.getTenant.request.vtl"
+  response: "Query.getTenant.response.vtl"
+

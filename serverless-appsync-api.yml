@@ -13,3 +13,9 @@ dataSources:
     config:
       functionName: createTenantGraphQl
       iamRoleStatements: ${file(./Resources/AppSyncResources/AppSyncRole.yml)}
+  - type: AWS_LAMBDA
+    name: getTenant
+    description: 'Lambda'
+    config:
+      functionName: getTenantGraphQl
+      iamRoleStatements: ${file(./Resources/AppSyncResources/AppSyncRole.yml)}
