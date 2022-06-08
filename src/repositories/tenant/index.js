@@ -1,5 +1,4 @@
 const { client } = require('../../services/db');
-const { CustomError } = require('../../errors');
 
 const TABLE_NAME = `${process.env.STAGE}-tenants`;
 
@@ -19,17 +18,21 @@ const getByName = async (tenant) => {
 };
 
 const create = async (params) => {
-  const duplicateTenant = await getByName(params.tenant);
-  if (duplicateTenant) {
-    throw new CustomError('Tenant with this name already exist', 409);
+  try {
+    await client.put({
+      TableName: TABLE_NAME,
+      Item: {
+        ...params,
+      },
+      ConditionExpression: 'attribute_not_exists(tenant)',
+    }).promise();
+    return params;
+  } catch (err) {
+    if (err.name === 'ConditionalCheckFailedException') {
+      throw new Error('Tenant already exist', err);
+    }
+    throw err;
   }
-  await client.put({
-    TableName: TABLE_NAME,
-    Item: {
-      ...params,
-    },
-  }).promise();
-  return params;
 };
 
 const setInactive = async (tenant) => {
