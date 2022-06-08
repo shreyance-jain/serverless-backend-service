@@ -2,7 +2,7 @@ handler: src/deliveries/graphql/read/get-tenant.handler
 iamRoleStatementsName: graphql-get-tenant-${opt:stage}
 iamRoleStatements:
   - Effect: "Allow"
-    Action:
+    Action: 
       - "dynamodb:Query"
     Resource:
-      - "arn:aws:dynamodb:{AWS::Region}:#{AWS::AccountId}:table/${opt:stage}-tenants"
+      - "arn:aws:dynamodb:#{AWS::Region}:#{AWS::AccountId}:table/${opt:stage}-tenants"
