@@ -276,6 +276,8 @@ Resources:
                   - appsync:UpdateDataSource
                   - appsync:CreateResolver
                   - appsync:DeleteDataSource
+                  - appsync:GetResolver
+                  - appsync:UpdateResolver
                 Resource: "*"
   TenantDynamoDBTable: #Service reources can be built using different IAC tool as well such as terraform
     Type: AWS::DynamoDB::Table
