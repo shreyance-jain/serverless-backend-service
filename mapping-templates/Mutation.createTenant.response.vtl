@@ -2,8 +2,4 @@
   $utils.error($ctx.error.message, $ctx.error.type)
 #end
 
-#if($context.result.statusCode != 200)
-  $utils.error($context.result.body, "LambdaFailure")
-#end
-
 $util.toJson($context.result)
