@@ -61,12 +61,12 @@ const setInactive = async (tenant) => {
   }
 };
 
-const update = async (updateParams) => {
+const update = async (data) => {
   try {
     const params = {
       TableName: TABLE_NAME,
       Key: {
-        tenant: updateParams.tenant,
+        tenant: data.tenant,
       },
       ExpressionAttributeValues: {},
       ExpressionAttributeNames: {},
@@ -74,11 +74,12 @@ const update = async (updateParams) => {
       UpdateExpression: 'SET',
       ReturnValues: 'ALL_NEW',
     };
-    Object.keys(updateParams).forEach((key) => {
+    const { tenant, ...paramsToUpdate } = data;
+    Object.keys(paramsToUpdate).forEach((key) => {
       params.ExpressionAttributeNames[`#${key}`] = key;
-      params.ExpressionAttributeValues[`:${key}`] = updateParams[key];
+      params.ExpressionAttributeValues[`:${key}`] = paramsToUpdate[key];
     });
-    params.UpdateExpression += Object.keys(updateParams)
+    params.UpdateExpression += Object.keys(paramsToUpdate)
       .map((key) => ` #${key} = :${key}`)
       .join(',');
     const res = await client.update(params).promise();
