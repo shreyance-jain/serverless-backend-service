@@ -44,8 +44,7 @@ functions:
     ${file(src/deliveries/lambda/create/create-tenant.yml)}
   createTenantGraphQl:
     ${file(src/deliveries/graphql/create/create-tenant.yml)}
-  getTenantGraphQl:
-    ${file(src/deliveries/graphql/read/get-tenant.yml)}
+
 
 plugins:
   - serverless-offline
