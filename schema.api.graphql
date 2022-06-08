@@ -11,6 +11,9 @@ type Query {
 type Mutation {
   # Create tenant
   createTenant(params: CreateTenantInput!): Tenant
+  
+  # Delete tenant
+  deleteTenant(tenant: String): Tenant
 }
 
 input CreateTenantInput {

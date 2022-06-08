@@ -8,4 +8,8 @@
   field: getTenant
   request: "Query.getTenant.request.vtl"
   response: "Query.getTenant.response.vtl"
-
+- dataSource: deleteTenant
+  type: Mutation
+  field: deleteTenant
+  request: "Mutation.deleteTenant.request.vtl"
+  response: "Mutation.deleteTenant.response.vtl"

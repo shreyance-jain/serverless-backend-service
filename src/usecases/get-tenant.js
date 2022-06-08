@@ -4,7 +4,7 @@ const { CustomError } = require('../errors');
 const getTenant = async (tenant) => {
   const tenantDetails = await tenantRepository.getByName(tenant);
   if (!tenantDetails) {
-    throw new CustomError('No such tenant exists', 404);
+    throw new CustomError('No such tenant exists');
   }
   return tenantDetails;
 };

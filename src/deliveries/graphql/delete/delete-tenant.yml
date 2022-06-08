@@ -1,0 +1,8 @@
+handler: src/deliveries/graphql/delete/delete-tenant.handler
+iamRoleStatementsName: graphql-delete-tenant-${opt:stage}
+iamRoleStatements:
+  - Effect: "Allow"
+    Action: 
+      - "dynamodb:UpdateItem"
+    Resource:
+      - "arn:aws:dynamodb:#{AWS::Region}:#{AWS::AccountId}:table/${opt:stage}-tenants"
