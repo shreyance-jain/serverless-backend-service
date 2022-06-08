@@ -43,16 +43,46 @@ const setInactive = async (tenant) => {
         tenant,
       },
       ExpressionAttributeValues: {
-        ':value': false,
+        ':active': false,
       },
       ExpressionAttributeNames: {
-        '#key': 'active',
+        '#active': 'active',
       },
       ConditionExpression: 'attribute_exists(tenant)',
-      UpdateExpression: 'SET #key = :value',
+      UpdateExpression: 'SET #active = :active',
       ReturnValues: 'ALL_NEW',
     }).promise();
     return data.Attributes;
+  } catch (err) {
+    if (err.name === 'ConditionalCheckFailedException') {
+      throw new Error('Tenant with this name does not exist', err);
+    }
+    throw err;
+  }
+};
+
+const update = async (updateParams) => {
+  try {
+    const params = {
+      TableName: TABLE_NAME,
+      Key: {
+        tenant: updateParams.tenant,
+      },
+      ExpressionAttributeValues: {},
+      ExpressionAttributeNames: {},
+      ConditionExpression: 'attribute_exists(tenant)',
+      UpdateExpression: 'SET',
+      ReturnValues: 'ALL_NEW',
+    };
+    Object.keys(updateParams).forEach((key) => {
+      params.ExpressionAttributeNames[`#${key}`] = key;
+      params.ExpressionAttributeValues[`:${key}`] = updateParams[key];
+    });
+    params.UpdateExpression += Object.keys(updateParams)
+      .map((key) => ` #${key} = :${key}`)
+      .join(',');
+    const res = await client.update(params).promise();
+    return res.Attributes;
   } catch (err) {
     if (err.name === 'ConditionalCheckFailedException') {
       throw new Error('Tenant with this name does not exist', err);
@@ -65,4 +95,5 @@ module.exports = {
   getByName,
   create,
   setInactive,
+  update,
 };
