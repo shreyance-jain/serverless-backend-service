@@ -46,6 +46,8 @@ functions:
     ${file(src/deliveries/graphql/create/create-tenant.yml)}
   getTenantGraphQl:
     ${file(src/deliveries/graphql/read/get-tenant.yml)}
+  deleteTenantGraphQl:
+    ${file(src/deliveries/graphql/read/get-tenant.yml)}
 
 
 plugins:
