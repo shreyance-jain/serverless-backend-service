@@ -8,8 +8,8 @@ const getTenantHandler = async (event) => {
   const logger = new Logger(__dirname, getTenantHandler);
   try {
     // adding a adaptor is un-necessary in gql as it will be handled by request mapping vtl
-    const tennatDetails = await getTenant(tenant);
-    return httpResponse(200, tennatDetails);
+    const tenantDetails = await getTenant(tenant);
+    return httpResponse(200, tenantDetails);
   } catch (error) {
     logger.debug(error.toString(), error, { tenant });
     return httpResponse(error.statusCode || 500, { message: error.message || 'Failed to get tenant details' });
