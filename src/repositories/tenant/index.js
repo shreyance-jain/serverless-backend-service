@@ -33,21 +33,29 @@ const create = async (params) => {
 };
 
 const setInactive = async (tenant) => {
-  const data = await client.update({
-    TableName: TABLE_NAME,
-    Key: {
-      tenant,
-    },
-    ExpressionAttributeValues: {
-      ':value': false,
-    },
-    ExpressionAttributeNames: {
-      '#key': 'active',
-    },
-    UpdateExpression: 'SET #key = :value',
-    ReturnValues: 'ALL_NEW',
-  }).promise();
-  return data.Attributes;
+  try {
+    const data = await client.update({
+      TableName: TABLE_NAME,
+      Key: {
+        tenant,
+      },
+      ExpressionAttributeValues: {
+        ':value': false,
+      },
+      ExpressionAttributeNames: {
+        '#key': 'active',
+      },
+      ConditionExpression: 'attribute_exists(tenant)',
+      UpdateExpression: 'SET #key = :value',
+      ReturnValues: 'ALL_NEW',
+    }).promise();
+    return data.Attributes;
+  } catch (err) {
+    if (err.name === 'ConditionalCheckFailedException') {
+      throw new Error('Tenant with this name does not exist', err);
+    }
+    throw err;
+  }
 };
 
 module.exports = {
