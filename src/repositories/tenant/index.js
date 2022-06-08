@@ -33,7 +33,7 @@ const create = async (params) => {
 };
 
 const setInactive = async (tenant) => {
-  await client.update({
+  const data = await client.update({
     TableName: TABLE_NAME,
     Key: {
       tenant,
@@ -47,6 +47,7 @@ const setInactive = async (tenant) => {
     UpdateExpression: 'SET #key = :value',
     ReturnValues: 'ALL_NEW',
   }).promise();
+  return data.Attributes;
 };
 
 module.exports = {
