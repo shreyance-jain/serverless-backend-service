@@ -1,5 +1,4 @@
 handler: src/deliveries/graphql/create/create-tenant.handler
-name: createTenant-${opt:stage}
 iamRoleStatementName: graphql-create-tenant-${opt:stage}
 iamRoleStatements:
   - Effect: "Allow"
