@@ -1,10 +1,10 @@
 name: appsync-graphql-serverless-api
-schema: schema.api.graphql
+schema: ./appsync/schema.api.graphql
 authenticationType: API_KEY
 apiKeys:
   - apiKey
-mappingTemplatesLocation: mapping-templates
-mappingTemplates: ${file(./Resources/AppSyncResources/AppSyncMappingTemplates.yml)}
+mappingTemplatesLocation: ./appsync/mapping-templates
+mappingTemplates: ${file(./appsync/AppSyncMappingTemplates.yml)}
 
 dataSources:
   - type: AWS_LAMBDA
@@ -12,22 +12,22 @@ dataSources:
     description: 'Lambda'
     config:
       functionName: createTenantGraphQl
-      iamRoleStatements: ${file(./Resources/AppSyncResources/AppSyncRole.yml)}
+      iamRoleStatements: ${file(./appsync/AppSyncRole.yml)}
   - type: AWS_LAMBDA
     name: getTenant
     description: 'Lambda'
     config:
       functionName: getTenantGraphQl
-      iamRoleStatements: ${file(./Resources/AppSyncResources/AppSyncRole.yml)}
+      iamRoleStatements: ${file(./appsync/AppSyncRole.yml)}
   - type: AWS_LAMBDA
     name: deleteTenant
     description: 'Lambda'
     config:
       functionName: deleteTenantGraphQl
-      iamRoleStatements: ${file(./Resources/AppSyncResources/AppSyncRole.yml)}
+      iamRoleStatements: ${file(./appsync/AppSyncRole.yml)}
   - type: AWS_LAMBDA
     name: updateTenant
     description: 'Lambda'
     config:
       functionName: updateTenantGraphQl
-      iamRoleStatements: ${file(./Resources/AppSyncResources/AppSyncRole.yml)}
+      iamRoleStatements: ${file(./appsync/AppSyncRole.yml)}
