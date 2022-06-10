@@ -4,7 +4,7 @@ authenticationType: API_KEY
 apiKeys:
   - apiKey
 mappingTemplatesLocation: ./appsync/mapping-templates
-mappingTemplates: ${file(./appsync/AppSyncMappingTemplates.yml)}
+mappingTemplates: ${file(./appsync/app-sync-mapping-templates.yml)}
 
 dataSources:
   - type: AWS_LAMBDA
@@ -12,22 +12,22 @@ dataSources:
     description: 'Lambda'
     config:
       functionName: createTenantGraphQl
-      iamRoleStatements: ${file(./appsync/AppSyncRole.yml)}
+      iamRoleStatements: ${file(./appsync/app-sync-role.yml)}
   - type: AWS_LAMBDA
     name: getTenant
     description: 'Lambda'
     config:
       functionName: getTenantGraphQl
-      iamRoleStatements: ${file(./appsync/AppSyncRole.yml)}
+      iamRoleStatements: ${file(./appsync/app-sync-role.yml)}
   - type: AWS_LAMBDA
     name: deleteTenant
     description: 'Lambda'
     config:
       functionName: deleteTenantGraphQl
-      iamRoleStatements: ${file(./appsync/AppSyncRole.yml)}
+      iamRoleStatements: ${file(./appsync/app-sync-role.yml)}
   - type: AWS_LAMBDA
     name: updateTenant
     description: 'Lambda'
     config:
       functionName: updateTenantGraphQl
-      iamRoleStatements: ${file(./appsync/AppSyncRole.yml)}
+      iamRoleStatements: ${file(./appsync/app-sync-role.yml)}
