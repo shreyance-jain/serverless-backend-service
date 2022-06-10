@@ -13,3 +13,8 @@
   field: deleteTenant
   request: "Mutation.deleteTenant.request.vtl"
   response: "Mutation.deleteTenant.response.vtl"
+- dataSource: updateTenant
+  type: Mutation
+  field: updateTenant
+  request: "Mutation.updateTenant.request.vtl"
+  response: "Mutation.updateTenant.response.vtl"

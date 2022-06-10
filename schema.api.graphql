@@ -14,6 +14,9 @@ type Mutation {
   
   # Delete tenant
   deleteTenant(tenant: String): Tenant
+
+  # Update tenant
+  updateTenant(params: UpdateTenantInput): Tenant
 }
 
 input CreateTenantInput {
@@ -23,9 +26,17 @@ input CreateTenantInput {
   createdAt: AWSDate
 }
 
+input UpdateTenantInput {
+  tenant: String!
+  tenantType: String
+  timezone: String
+}
+
+
 type Tenant {
   tenant: String!
   tenantType: String!
   createdAt: Float!
   active: Boolean!
+  timezone: String
 }

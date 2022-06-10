@@ -25,3 +25,9 @@ dataSources:
     config:
       functionName: deleteTenantGraphQl
       iamRoleStatements: ${file(./Resources/AppSyncResources/AppSyncRole.yml)}
+  - type: AWS_LAMBDA
+    name: updateTenant
+    description: 'Lambda'
+    config:
+      functionName: updateTenantGraphQl
+      iamRoleStatements: ${file(./Resources/AppSyncResources/AppSyncRole.yml)}
