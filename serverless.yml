@@ -39,9 +39,9 @@ custom:
 
 functions:
   helloWorld:
-    ${file(src/deliveries/lambda/hello-world.yml)}
+    ${file(src/deliveries/rest/hello/hello-world.yml)}
   createTenant:
-    ${file(src/deliveries/lambda/create/create-tenant.yml)}
+    ${file(src/deliveries/rest/create/create-tenant.yml)}
   createTenantGraphQl:
     ${file(src/deliveries/graphql/create/create-tenant.yml)}
   getTenantGraphQl:
