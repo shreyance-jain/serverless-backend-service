@@ -1,4 +1,4 @@
-handler: src/deliveries/lambda/hello-world.handler
+handler: src/deliveries/rest/hello/hello-world.handler
 events:
   - http:
       path: /

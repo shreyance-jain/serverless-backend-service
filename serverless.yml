@@ -12,10 +12,6 @@ provider:
   iamRoleStatements:
     - Effect: 'Allow'
       Action: 
-        - 'ec2:CreateNetworkInterface'
-        - 'ec2:DescribeNetworkInterface'
-        - 'ec2:DetachNetworkInterface'
-        - 'ec2:DeleteNetworkInterface'
         - 'logs:CreateLogGroup'
         - 'logs:CreateLogStream'
         - 'logs:PutLogEvents'
@@ -28,7 +24,6 @@ provider:
   environment:
     STAGE: ${opt:stage}
     PROJECT_NAME: ${self:service}
-    API_DOMAIN:
     REGION: ${self:provider.region}
 
 custom:
@@ -39,9 +34,9 @@ custom:
 
 functions:
   helloWorld:
-    ${file(src/deliveries/lambda/hello-world.yml)}
+    ${file(src/deliveries/rest/hello/hello-world.yml)}
   createTenant:
-    ${file(src/deliveries/lambda/create/create-tenant.yml)}
+    ${file(src/deliveries/rest/create/create-tenant.yml)}
   createTenantGraphQl:
     ${file(src/deliveries/graphql/create/create-tenant.yml)}
   getTenantGraphQl:
@@ -55,5 +50,4 @@ functions:
 plugins:
   - serverless-offline
   - serverless-iam-roles-per-function
-  - serverless-pseudo-parameters
   - serverless-appsync-plugin
