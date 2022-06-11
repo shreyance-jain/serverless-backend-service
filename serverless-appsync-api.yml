@@ -1,4 +1,4 @@
-name: appsync-graphql-serverless-api
+name: appsync-graphql-api-${opt:stage}
 schema: ./appsync/schema.api.graphql
 authenticationType: API_KEY
 apiKeys:
