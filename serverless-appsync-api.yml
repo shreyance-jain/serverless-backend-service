@@ -17,7 +17,7 @@ dataSources:
           Action:
             - 'lambda:invokeFunction'
           Resource:
-            - 'arn:aws:lambda:#{aws:region}:#{aws:accountId}:function:serverless-backend-service-latest-createTenantGraphQl'
+            - 'arn:aws:lambda:{aws:region}:{aws:accountId}:function:serverless-backend-service-latest-createTenantGraphQl'
   - type: AWS_LAMBDA
     name: getTenant
     description: 'Lambda'
