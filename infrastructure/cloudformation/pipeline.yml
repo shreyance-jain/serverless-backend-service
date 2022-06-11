@@ -221,7 +221,10 @@ Resources:
                   - iam:DetachRolePolicy
                   - iam:AttachRolePolicy
                   - appsync:TagResource
+                  - appsync:UntagResource
+                  - appsync:ListTagsForResource
                   - appsync:CreateGraphqlApi
+                  - appsync:UpdateGraphqlApi
                   - appsync:GetGraphqlApi
                   - appsync:CreateApiKey
                   - appsync:StartSchemaCreation
