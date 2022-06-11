@@ -6,7 +6,6 @@ const updateTenantHandler = async (event) => {
   const { params } = event;
   const logger = new Logger(__dirname, updateTenantHandler);
   try {
-    // adding a adaptor is un-necessary in gql as it will be handled by request mapping vtl
     const tenantDetails = await updateTenant(params);
     return tenantDetails;
   } catch (error) {
