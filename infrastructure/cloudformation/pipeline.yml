@@ -279,7 +279,7 @@ Resources:
                   - appsync:GetResolver
                   - appsync:UpdateResolver
                 Resource: "*"
-  TenantDynamoDBTable: #Service reources can be built using different IAC tool as well such as terraform
+  TenantDynamoDBTable:
     Type: AWS::DynamoDB::Table
     Properties:
       TableName: !Sub '${Stage}-tenants'
