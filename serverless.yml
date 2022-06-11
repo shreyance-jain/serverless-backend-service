@@ -12,10 +12,6 @@ provider:
   iamRoleStatements:
     - Effect: 'Allow'
       Action: 
-        - 'ec2:CreateNetworkInterface'
-        - 'ec2:DescribeNetworkInterface'
-        - 'ec2:DetachNetworkInterface'
-        - 'ec2:DeleteNetworkInterface'
         - 'logs:CreateLogGroup'
         - 'logs:CreateLogStream'
         - 'logs:PutLogEvents'
@@ -28,7 +24,6 @@ provider:
   environment:
     STAGE: ${opt:stage}
     PROJECT_NAME: ${self:service}
-    API_DOMAIN:
     REGION: ${self:provider.region}
 
 custom:
