@@ -17,7 +17,7 @@ dataSources:
           Action:
             - lambda:invokeFunction
           Resource:
-            - arn:aws:lambda:#{AWS::Region}:#{AWS::AccountId}:function:serverless-backend-service-${opt:stage}-createTenantGraphQl
+            - "arn:aws:lambda:#{AWS::Region}:#{AWS::AccountId}:function:serverless-backend-service-${opt:stage}-createTenantGraphQl"
   - type: AWS_LAMBDA
     name: getTenant
     description: 'Lambda'
@@ -28,7 +28,7 @@ dataSources:
           Action:
             - lambda:invokeFunction
           Resource:
-            - arn:aws:lambda:#{AWS::Region}:#{AWS::AccountId}:function:serverless-backend-service-${opt:stage}-getTenantGraphQl
+            - "arn:aws:lambda:#{AWS::Region}:#{AWS::AccountId}:function:serverless-backend-service-${opt:stage}-getTenantGraphQl"
   - type: AWS_LAMBDA
     name: deleteTenant
     description: 'Lambda'
@@ -39,7 +39,7 @@ dataSources:
           Action:
             - lambda:invokeFunction
           Resource:
-            - arn:aws:lambda:#{AWS::Region}:#{AWS::AccountId}:function:serverless-backend-service-${opt:stage}-deleteTenantGraphQl
+            - "arn:aws:lambda:#{AWS::Region}:#{AWS::AccountId}:function:serverless-backend-service-${opt:stage}-deleteTenantGraphQl"
   - type: AWS_LAMBDA
     name: updateTenant
     description: 'Lambda'
@@ -50,4 +50,4 @@ dataSources:
           Action:
             - lambda:invokeFunction
           Resource:
-            - arn:aws:lambda:#{AWS::Region}:#{AWS::AccountId}:function:serverless-backend-service-${opt:stage}-updateTenantGraphQl
+            - "arn:aws:lambda:#{AWS::Region}:#{AWS::AccountId}:function:serverless-backend-service-${opt:stage}-updateTenantGraphQl"
