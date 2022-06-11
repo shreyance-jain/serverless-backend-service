@@ -1,5 +1,5 @@
 handler: src/deliveries/graphql/create/create-tenant.handler
-iamRoleStatementName: graphql-create-tenant-${opt:stage}
+iamRoleStatementsName: graphql-create-tenant-${opt:stage}
 iamRoleStatements:
   - Effect: "Allow"
     Action: 
