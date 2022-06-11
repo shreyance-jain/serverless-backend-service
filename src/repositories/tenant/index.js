@@ -1,11 +1,10 @@
 const { client } = require('../../services/db');
-
-const TABLE_NAME = `${process.env.STAGE}-tenants`;
+const { tenantsTable } = require('../../constants');
 
 const getByName = async (tenant) => {
   const res = await client
     .query({
-      TableName: TABLE_NAME,
+      TableName: tenantsTable,
       KeyConditionExpression: 'tenant = :tenant',
       ExpressionAttributeValues: {
         ':tenant': tenant,
@@ -20,7 +19,7 @@ const getByName = async (tenant) => {
 const create = async (params) => {
   try {
     await client.put({
-      TableName: TABLE_NAME,
+      TableName: tenantsTable,
       Item: {
         ...params,
       },
@@ -38,7 +37,7 @@ const create = async (params) => {
 const setInactive = async (tenant) => {
   try {
     const data = await client.update({
-      TableName: TABLE_NAME,
+      TableName: tenantsTable,
       Key: {
         tenant,
       },
@@ -64,7 +63,7 @@ const setInactive = async (tenant) => {
 const update = async (data) => {
   try {
     const params = {
-      TableName: TABLE_NAME,
+      TableName: tenantsTable,
       Key: {
         tenant: data.tenant,
       },
