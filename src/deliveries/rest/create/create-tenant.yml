@@ -11,4 +11,4 @@ iamRoleStatements:
       - "dynamodb:Query"
       - "dynamodb:PutItem"
     Resource:
-      - "arn:aws:dynamodb:#{AWS::Region}:#{AWS::AccountId}:table/${opt:stage}-tenants"
+      - "arn:aws:dynamodb${aws:region}:${aws:accountId}table/${opt:stage}-tenants"

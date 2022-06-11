@@ -13,26 +13,41 @@ dataSources:
     config:
       functionName: createTenantGraphQl
       iamRoleStatements:
-        - Effect: 'Allow'
+        - Effect: "Allow"
           Action:
-            - 'lambda:invokeFunction'
+            - "lambda:invokeFunction"
           Resource:
-            - 'arn:aws:lambda:${aws:region}:${aws:accountId}:function:serverless-backend-service-${opt:stage}-createTenantGraphQl'
+            - "arn:aws:lambda${aws:region}:${aws:accountId}function:serverless-backend-service-${opt:stage}-createTenantGraphQl"
   - type: AWS_LAMBDA
     name: getTenant
     description: 'Lambda'
     config:
       functionName: getTenantGraphQl
-      iamRoleStatements: ${file(./appsync/graphql-ds-role.yml)}
+      iamRoleStatements:
+        - Effect: "Allow"
+          Action:
+            - "lambda:invokeFunction"
+          Resource:
+            - "arn:aws:lambda${aws:region}:${aws:accountId}function:serverless-backend-service-${opt:stage}-getTenantGraphQl"
   - type: AWS_LAMBDA
     name: deleteTenant
     description: 'Lambda'
     config:
       functionName: deleteTenantGraphQl
-      iamRoleStatements: ${file(./appsync/graphql-ds-role.yml)}
+      iamRoleStatements:
+        - Effect: "Allow"
+          Action:
+            - "lambda:invokeFunction"
+          Resource:
+            - "arn:aws:lambda${aws:region}:${aws:accountId}function:serverless-backend-service-${opt:stage}-deleteTenantGraphQl"
   - type: AWS_LAMBDA
     name: updateTenant
     description: 'Lambda'
     config:
       functionName: updateTenantGraphQl
-      iamRoleStatements: ${file(./appsync/graphql-ds-role.yml)}
+      iamRoleStatements:
+        - Effect: "Allow"
+          Action:
+            - "lambda:invokeFunction"
+          Resource:
+            - "arn:aws:lambda${aws:region}:${aws:accountId}function:serverless-backend-service-${opt:stage}-updateTenantGraphQl"
