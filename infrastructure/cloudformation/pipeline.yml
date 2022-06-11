@@ -22,6 +22,10 @@ Mappings:
       vpc: vpc_id_latest
     test:
       vpc: vpc_id_test
+    beta:
+      vpc: vpc_id_beta
+    prod:
+      vpc: vpc_id_prod
 Metadata:
   AWS::CloudFormation::Interface:
     ParameterGroups:
@@ -193,6 +197,16 @@ Resources:
                   - cloudwatch:*
                   - lambda:*
                   - apigateway:*
+                  - cloudformation:CreateStack
+                  - cloudformation:CreateUploadBucket
+                  - cloudformation:DeleteStack
+                  - cloudformation:DescribeStackEvents
+                  - cloudformation:DescribeStackResource
+                  - cloudformation:DescribeStackResources
+                  - cloudformation:UpdateStack
+                  - cloudformation:DescribeStacks
+                  - cloudformation:ValidateTemplate
+                  - cloudformation:ListStackResources
                   - s3:GetObject
                   - s3:GetObjectVersion
                   - s3:PutObject
