@@ -220,6 +220,10 @@ Resources:
                   - iam:PutRolePolicy
                   - iam:DetachRolePolicy
                   - iam:AttachRolePolicy
+                  - iam:CreateServiceLinkedRole
+                  - iam:DeleteServiceLinkedRole
+                  - iam:GetServiceLinkedRoleDeletionStatus
+                  - sts:AssumeRole
                   - appsync:TagResource
                   - appsync:UntagResource
                   - appsync:ListTagsForResource
