@@ -5,6 +5,7 @@ apiKeys:
   - apiKey
 mappingTemplatesLocation: ./appsync/mapping-templates
 mappingTemplates: ${file(./appsync/app-sync-mapping-templates.yml)}
+xrayEnabled: true # to optimise cost x-ray can be enabled based on stage
 
 dataSources:
   - type: AWS_LAMBDA
