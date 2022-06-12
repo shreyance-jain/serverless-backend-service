@@ -6,6 +6,12 @@ apiKeys:
 mappingTemplatesLocation: ./appsync/mapping-templates
 mappingTemplates: ${file(./appsync/app-sync-mapping-templates.yml)}
 xrayEnabled: true # to optimise cost x-ray can be enabled based on stage
+caching:
+  behavior: PER_RESOLVER_CACHING # or  FULL_REQUEST_CACHING
+  ttl: 3600
+  atRestEncryption: true
+  transitEncryption: true
+  type: 'T2_SMALL'
 
 dataSources:
   - type: AWS_LAMBDA
