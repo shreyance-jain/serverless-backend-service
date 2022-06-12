@@ -15,6 +15,11 @@ provider:
         - 'logs:CreateLogGroup'
         - 'logs:CreateLogStream'
         - 'logs:PutLogEvents'
+        - 'xray:PutTraceSegments'
+        - 'xray:PutTelemetryRecords'
+        - 'xray:GetSamplingRules'
+        - 'xray:GetSamplingTargets'
+        - 'xray:GetSamplingStatisticSummaries'
       Resource: '*'
   apiGateway:
     minimumCompressionSize: 1024
