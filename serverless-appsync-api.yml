@@ -1,5 +1,5 @@
 name: appsync-graphql-api-${opt:stage}
-schema: ./appsync/schema.api.graphql
+schema: ./appsync/schemas/schema.api.graphql
 authenticationType: API_KEY
 apiKeys:
   - apiKey
