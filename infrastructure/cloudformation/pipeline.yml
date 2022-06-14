@@ -240,6 +240,11 @@ Resources:
                   - appsync:DeleteDataSource
                   - appsync:GetResolver
                   - appsync:UpdateResolver
+                  - appsync:CreateApiCache
+                  - appsync:GetApiCache
+                  - appsync:DeleteApiCache
+                  - appsync:FlushApiCache
+                  - appsync:UpdateApiCache
                 Resource: "*"
   TenantDynamoDBTable:
     Type: AWS::DynamoDB::Table
