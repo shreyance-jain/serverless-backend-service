@@ -12,7 +12,10 @@ caching:
   atRestEncryption: true
   transitEncryption: true
   type: 'T2_SMALL'
-
+wafConfig:
+  enabled: true
+  rules:
+    - disableIntrospection 
 dataSources:
   - type: AWS_LAMBDA
     name: createTenant
