@@ -3,3 +3,6 @@ node_modules/
 
 # OS metadata
 .DS_Store
+
+# Coverage directory used by jest
+coverage

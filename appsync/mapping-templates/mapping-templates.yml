@@ -8,6 +8,9 @@
   field: getTenant
   request: "Query.getTenant.request.vtl"
   response: "Query.getTenant.response.vtl"
+  caching:
+    keys:
+      - '$context.args.tenant'
 - dataSource: deleteTenant
   type: Mutation
   field: deleteTenant

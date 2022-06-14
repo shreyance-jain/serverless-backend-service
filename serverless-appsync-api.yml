@@ -1,10 +1,35 @@
 name: appsync-graphql-api-${opt:stage}
-schema: ./appsync/schema.api.graphql
+schema: ./appsync/schemas/schema.api.graphql
 authenticationType: API_KEY
 apiKeys:
   - apiKey
 mappingTemplatesLocation: ./appsync/mapping-templates
-mappingTemplates: ${file(./appsync/app-sync-mapping-templates.yml)}
+mappingTemplates: ${file(./appsync/mapping-templates/mapping-templates.yml)}
+
+xrayEnabled: true # to optimise cost x-ray can be enabled based on stage
+
+caching:
+  behavior: PER_RESOLVER_CACHING # or  FULL_REQUEST_CACHING
+  ttl: 3600
+  atRestEncryption: true
+  transitEncryption: true
+  type: 'T2_SMALL'
+
+# wafConfig: ## WAF can be enabled and custom rules can be created for security pruposes
+#   enabled: true
+#   name: AppSyncWaf
+#   description: 'AppSync CRUD API Waf rules'
+#   rules:
+#     - throttle: 100
+#     - name: US-and-India-Only
+#       action: Block
+#       statement:
+#         NotStatement:
+#           Statement:
+#             GeoMatchStatement:
+#               CountryCodes:
+#                 - US
+#                 - IN
 
 dataSources:
   - type: AWS_LAMBDA

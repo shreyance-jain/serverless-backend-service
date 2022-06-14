@@ -4,7 +4,7 @@ events:
       path: /tenant
       method: post
       cors: true
-iamRoleStatementName: create-tenant-${opt:stage}
+iamRoleStatementsName: create-tenant-${opt:stage}
 iamRoleStatements:
   - Effect: "Allow"
     Action: 
