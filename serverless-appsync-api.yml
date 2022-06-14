@@ -14,6 +14,8 @@ caching:
   type: 'T2_SMALL'
 wafConfig:
   enabled: true
+  name: AppSyncWaf
+  description: 'AppSync CRUD API Waf rules'
   rules:
     - disableIntrospection 
 dataSources:
