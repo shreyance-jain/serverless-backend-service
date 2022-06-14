@@ -15,21 +15,22 @@ caching:
   transitEncryption: true
   type: 'T2_SMALL'
 
-# wafConfig: ## WAF can be enabled and custom rules can be created for security pruposes
-#   enabled: true
-#   name: AppSyncWaf
-#   description: 'AppSync CRUD API Waf rules'
-#   rules:
-#     - throttle: 100
-#     - name: US-and-India-Only
-#       action: Block
-#       statement:
-#         NotStatement:
-#           Statement:
-#             GeoMatchStatement:
-#               CountryCodes:
-#                 - US
-#                 - IN
+wafConfig:
+  enabled: true
+  name: AppSyncWaf
+  defaultAction: Allow # or Block. Defaults to Allow
+  description: 'My AppSync Waf rules'
+  rules:
+    - throttle: 100
+    - disableIntrospection
+    - name: UsOnly
+      action: Block # Allow, Block, or Count
+      statement:
+        NotStatement:
+          Statement:
+            GeoMatchStatement:
+              CountryCodes:
+                - US
 
 dataSources:
   - type: AWS_LAMBDA
