@@ -4,7 +4,7 @@ authenticationType: API_KEY
 apiKeys:
   - apiKey
 mappingTemplatesLocation: ./appsync/mapping-templates
-mappingTemplates: ${file(./appsync/app-sync-mapping-templates.yml)}
+mappingTemplates: ${file(./appsync/mapping-templates.yml)}
 xrayEnabled: true # to optimise cost x-ray can be enabled based on stage
 caching:
   behavior: PER_RESOLVER_CACHING # or  FULL_REQUEST_CACHING
