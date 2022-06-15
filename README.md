@@ -23,20 +23,18 @@ to actually track the performance of our API.
 
 ## API in Production
 
-## Protecting access to the API
+### Protecting access to the API: Authorization mode & Choosing the right mode
 Depending on the type of application we're building, it could be enterprise, it could be for a startup,
 and who you want accessing our API, we may want to choose a different authorization mode for each of those use cases.
 
-### Authorization mode: Choosing the right mode
-
-#### API key - 
+### API key - 
 This mode allows us to simply specify a HTTP header.
 This header is called X API key and specifies the value of an API key that we've set up.
 This is fairly simple but efficient mode to use when you're getting started or for demo purposes
 
 Also a useful and a good mode to use for business or machine to machine use cases.
 
-#### Cognito User Pools -
+### Cognito User Pools -
 Cognito User Pools is a great tool to use if we have an application where users are signing
 into the app with a user pool and then using JSON web tokens or JWT tokens
 that they receive from the Cognito User Pool to get access to our API.
@@ -53,7 +51,7 @@ is probably what you want to use because of visibility.
 
 Additionally, with Cognito access mode, you can also implement granular access control using directives.
 
-#### Open ID connect or OIDC. -
+### Open ID connect or OIDC. -
 So ideally, this is good when we have something like an application that already
 is set up and has a user directory. So we might have an external OIDC identity provider and we can set that up.
 
@@ -66,7 +64,7 @@ However, just like Cognito User Pool, weu can implement a very granular access c
 using the claims that are available in the identity object that is made available
 to our resolvers in AppSync.
 
-#### AWS Identity and Access Management: IAM.
+### AWS Identity and Access Management: IAM.
 This is a great mode to use if you have backends running on AWS that are going
 to access our apps when we're using AWS credentials.
 
