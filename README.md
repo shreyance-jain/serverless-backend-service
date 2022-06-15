@@ -1,7 +1,7 @@
 # Appsync-GraphQL-Service
 
 ## AWS AppSync:
-<details>
+<details>  
 It's a fully managed GraphQL service that runs on AWS. It helps us build scalable applications that can connect to multiple data sources.
 
 The GraphQL connects with those data sources via resolvers.
@@ -24,11 +24,10 @@ to actually track the performance of our API.
 </details>
 
 ## API in Production
-<details>
-
-<summary>Protecting access to the API: Authorization mode & Choosing the right mode</summary>
 
 ### Protecting access to the API: Authorization mode & Choosing the right mode
+<details>  
+
 Depending on the type of application we're building, it could be enterprise, it could be for a startup,
 and who we want accessing our API, we may want to choose a different authorization mode for each of those use cases.
 
@@ -80,11 +79,11 @@ to access the fields and types that we want to access.
 And we can get very granular with the divisions here as well.
 
 So this is the mode that recommended if we're accessing for an EC2 instance,
-because they use instance profiles, or if we're using AWS Lambda function to access the API.
+because they use instance profiles, or if we're using AWS Lambda function to access the API.  
 </details>
 
 ## Protecting the availability of our API.
-<details>
+<details>  
 
 So with AppSync, it provides DDoS protection for every API that we configure.
 This means that it's built into standard attacks, sand can scale to absorb those attacks.
@@ -102,7 +101,7 @@ Other usecases:
 </details>
 
 ## Performance and Monitoring
-
+<details>  
 To make sure we understand what's going on with the performance of our API
 AppSync allows us to do that by providing CloudWatch metrics.
 So by default, we can monitor:
@@ -146,7 +145,12 @@ Different from REST, GraphQL returns HTTP 200 responses whether parts of a query
 
 </br><img src="https://readme-assets-serverless-backend-service.s3.eu-west-1.amazonaws.com/x-ray/trace-errors-when-multiple-data-sources.png" width = "100%" height="100%"/></p>
 
+</details>
+
 ## Caching
+
+<details>  
+
 With the help of monitoring finally  we can fine tune or optimize out our API with something like a cache.
 
 AppSync does provide a cache that sits between our API and our backend resources.
@@ -169,6 +173,9 @@ monitoring and performance of our GraphQL API in production.
 
 
 </br><img src="https://readme-assets-serverless-backend-service.s3.eu-west-1.amazonaws.com/cache/x-ray-cache.png" width = "100%" height="100%"/></p>
+
+
+</details>
 
 ## Archtitecture (Prodcution Ready)  
 </br><img src="https://readme-assets-serverless-backend-service.s3.eu-west-1.amazonaws.com/service-architecture.png" width = "100%" height="100%"/></p>
