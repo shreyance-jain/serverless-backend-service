@@ -86,8 +86,6 @@ because they use instance profiles, or if we're using AWS Lambda function to acc
 ## Protecting the availability of our API.
 <details>
 
-<summary>Protecting the availability of our API</summary>
-
 So with AppSync, it provides DDoS protection for every API that we configure.
 This means that it's built into standard attacks, sand can scale to absorb those attacks.
 
