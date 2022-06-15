@@ -25,7 +25,7 @@ to actually track the performance of our API.
 
 ## API in Production
 
-### Protecting access to the API: Authorization mode & Choosing the right mode
+## Protecting access to the API: Authorization mode & Choosing the right mode
 <details>  
 
 Depending on the type of application we're building, it could be enterprise, it could be for a startup,
@@ -177,7 +177,7 @@ monitoring and performance of our GraphQL API in production.
 
 </details>
 
-## Archtitecture (Prodcution Ready)  
+## Archtitecture  
 </br><img src="https://readme-assets-serverless-backend-service.s3.eu-west-1.amazonaws.com/service-architecture.png" width = "100%" height="100%"/></p>
 
 
