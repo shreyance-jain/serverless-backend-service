@@ -27,7 +27,7 @@ to actually track the performance of our API.
 Depending on the type of application we're building, it could be enterprise, it could be for a startup,
 and who you want accessing our API, we may want to choose a different authorization mode for each of those use cases.
 
-### Choosing the right authorization mode
+### Authorization mode: Choosing the right mode
 
 ### API key - 
 This mode allows us to simply specify a HTTP header.
@@ -104,6 +104,8 @@ So by default, we can monitor:
 - number of 400 errors and
 - number of 500 errors.
 
+</br><img src="https://readme-assets-serverless-backend-service.s3.eu-west-1.amazonaws.com/api-metrics.png" width = "100%" height="100%"/></p>
+
 AppSync also integrates with CloudWatch logs. So this allows you to use these logs
 to actually gain further insight into what's going on with our API.
 So with CloudWatch logs, we can do two things.
@@ -125,9 +127,17 @@ That's monitoring and how you can use it to improve our API.
 
 But sometimes we also need to talk to some real time
 tracing all of those APIs to find out what's going on.
-We can do that with **AWS x-ray**, We you can use it to identify performance bottlenecks,
+We can do that with **AWS X-Ray**, We you can use it to identify performance bottlenecks,
 and we can see which components are actually contributing the most latency.
 
+**AWS X-Ray**
+
+</br><img src="https://readme-assets-serverless-backend-service.s3.eu-west-1.amazonaws.com/x-ray/x-ray.png" width = "100%" height="100%"/></p>
+
+Tracing errors with X-Ray:
+Different from REST, GraphQL returns HTTP 200 responses whether parts of a query succeeded or not at all, and the client has to detect if errors are sent as part of the response. That means, if we made a mistake when creating a malformed custom resolver, or if one of our data sources returned errors we can pinpoint exactly the culprit.
+
+</br><img src="https://readme-assets-serverless-backend-service.s3.eu-west-1.amazonaws.com/x-ray/trace-errors-when-multiple-data-sources.png" width = "100%" height="100%"/></p>
 
 ## Caching
 With the help of monitoring finally  we can fine tune or optimize out our API with something like a cache.
@@ -151,8 +161,10 @@ To deploy our AWS AppSync instance and the various other services will enable yo
 monitoring and performance of our GraphQL API in production.
 
 
+</br><img src="https://readme-assets-serverless-backend-service.s3.eu-west-1.amazonaws.com/cache/x-ray-cache.png" width = "100%" height="100%"/></p>
+
 ## Archtitecture (Prodcution Ready)  
-</br><img src="./service-architecture.png" width = "100%" height="100%"/></p>
+</br><img src="https://readme-assets-serverless-backend-service.s3.eu-west-1.amazonaws.com/service-architecture.png" width = "100%" height="100%"/></p>
 
 
 ## Services
@@ -183,5 +195,13 @@ The repository follows clean architecture with source code.
 
 ## Examples
 
+For examples on how to consume these CRUD GraphlQL APIs, refer examples under appsync directory in the root
+
 ## Tests
 
+Setup for Unit Tests is done via Jest and a sample unit test have been added with coverage support
+
+#### Running tests
+```
+yarn run test
+```
