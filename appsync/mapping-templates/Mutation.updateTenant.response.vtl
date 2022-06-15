@@ -2,4 +2,8 @@
   $utils.error($ctx.error.message, $ctx.error.type)
 #end
 
+#set($cachingKeys = {})
+$util.qr($cachingKeys.put("context.args.tenant", $context.args.params.tenant))
+$extensions.evictFromApiCache("Query", "getTenant", $cachingKeys)
+
 $util.toJson($context.result)
