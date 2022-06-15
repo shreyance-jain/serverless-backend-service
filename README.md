@@ -1,6 +1,7 @@
 # Appsync-GraphQL-Service
 
 ## AWS AppSync:
+<details>
 It's a fully managed GraphQL service that runs on AWS. It helps us build scalable applications that can connect to multiple data sources.
 
 The GraphQL connects with those data sources via resolvers.
@@ -20,6 +21,7 @@ like multilevel authorization, access control.
 
 And it also integrates with AWS WAF, X-Ray and Cloudwatch that provides the monitoring that we need
 to actually track the performance of our API.
+</details>
 
 ## API in Production
 <details>
@@ -82,6 +84,9 @@ because they use instance profiles, or if we're using AWS Lambda function to acc
 </details>
 
 ## Protecting the availability of our API.
+<details>
+
+<summary>Protecting the availability of our API</summary>
 
 So with AppSync, it provides DDoS protection for every API that we configure.
 This means that it's built into standard attacks, sand can scale to absorb those attacks.
@@ -95,6 +100,8 @@ Other usecases:
   and we can make sure that our different partners or third-party partners
   that have those keys do not overwhelm the actual API with requests.
 - IP Whitelisting
+
+</details>
 
 ## Performance and Monitoring
 
