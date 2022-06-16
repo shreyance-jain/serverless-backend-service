@@ -188,6 +188,14 @@ monitoring and performance of our GraphQL API in production.
 - AWS CodeBuild: Deployment (Serverless framework: sls deploy)
 - AWS Appsync: GraphQL
 
+## CI/CD
+The CloudFormation stack of the service creates a CodePipeline for CI/CD orchestration.
+The pipeline has 2 stages:
+1. Source: Triggered via webhook from Github
+2. Deploy: Install dependecies, build and deploy using  sls deploy
+
+</br><img src="https://readme-assets-serverless-backend-service.s3.eu-west-1.amazonaws.com/ci-cd.png" width = "100%" height="100%"/></p>
+
 ## Folder Structure 📁
 The repository follows clean architecture with source code.
 

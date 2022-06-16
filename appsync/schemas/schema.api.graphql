@@ -4,18 +4,14 @@ schema {
 }
 
 type Query {
-    # Query
     getTenant(tenant: String): Tenant
 }
 
 type Mutation {
-  # Create tenant
   createTenant(params: CreateTenantInput!): Tenant
   
-  # Delete tenant
   deleteTenant(tenant: String): Tenant
 
-  # Update tenant
   updateTenant(params: UpdateTenantInput): Tenant
 }
 
@@ -23,7 +19,6 @@ input CreateTenantInput {
   tenant: String!
   tenantType: String!
   timezone: String
-  createdAt: AWSDate
 }
 
 input UpdateTenantInput {
